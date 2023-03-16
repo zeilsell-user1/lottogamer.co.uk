@@ -17,28 +17,29 @@ import {
 import {
   GlobalNav,
   GlobalNavItem,
-  Logo,
   LogoImg,
   GlobalNavMenu,
-  Actions,
   NavbarButtons,
   BurgerImg,
   GlobalNavMobileContainer,
   GlobalNavContainer,
   GlobalNavMobileBurger,
-  GlobalNavMobileMenu,
 } from "./global-header.styles";
 
 import { GenericButton, ButtonTypes } from "../generic-button/generic-button";
-import NavLinkMobile from "./nav-link-mobile";
 
-type Props = {};
+type Props = {
+  breakpoint: number;
+  callback: () => void;
+};
 
-const GlobalHeader = ({}: Props): JSX.Element => {
+const GlobalHeader = ({
+  breakpoint,
+  callback,
+}: Props): JSX.Element => {
   const [menu, setMenu] = useState({} as CmsNavItem[]);
   const [logo, setLogo] = useState({} as CmsImage);
   const [burger, setBurger] = useState({} as CmsImage);
-  const [mobileMenuVisible, setMobileSubMenuVisible] = useState(false);
 
   // read the header logo and nav data from the CMS on every page load
 
@@ -92,41 +93,29 @@ const GlobalHeader = ({}: Props): JSX.Element => {
 
     return targetReached;
   };
+  
+  const isBreakpoint = useMediaQuery(breakpoint);
 
   // functions used to grab the content and images from the CMS as callbacks
 
   const fillOutHeaderNavigationLinks = async () => {
     const navLinksCallback = (navItemsData: CmsNavItem[]) => {
-      // the header nav links are ordered in the fetch fromt he CMS. If
+      // the header nav links are ordered in the fetch from the CMS. If
       // not then enable this code to sort the nav items by order
       /*
-            navItemsData.sort((a, b) => {
-                if (a.order < b.order) return -1; 
-                if (a.order > b.order) return 1;
-                return 0;
-              });
-              */
+      navItemsData.sort((a, b) => {
+          if (a.order < b.order) return -1; 
+          if (a.order > b.order) return 1;
+          return 0;
+        });
+      */
 
       setMenu(navItemsData);
     };
     getNavItems(navLinksCallback);
   };
 
-  const fillOutHeaderLogo = async () => {
-    const logoCallback = (logoData: CmsImage) => {
-      setLogo(logoData);
-    };
-    getLogo(logoCallback);
-  };
-
-  const fillOutHeaderBurger = async () => {
-    const burgerCallback = (burgerData: CmsImage) => {
-      setBurger(burgerData);
-    };
-    getBurger(burgerCallback);
-  };
-
-  // render the menu items in desktop and mobile formats
+  // render the menu items in desktop format
 
   const renderMenu = (item: CmsNavItem, index: number) => {
     const linkKey = "top2".concat(item.title);
@@ -144,85 +133,68 @@ const GlobalHeader = ({}: Props): JSX.Element => {
     );
   };
 
-  const renderMobileMenu = (item: CmsNavItem, index: number) => {
-    const linkKey = "topM2".concat(item.title);
-
-    if (!item || !item.enabled || !item.url) {
-      return "empty" + index;
-    }
-    return (
-      <NavLinkMobile
-        key={linkKey}
-        url={item.url}
-        title={item.title}
-        subMenuItems={item.subMenuItems}
-      />
-    );
-  };
-
   // add the logo and burger images or handle failure elegantly
+
+  const fillOutHeaderLogo = async () => {
+    const logoCallback = (logoData: CmsImage) => {
+      setLogo(logoData);
+    };
+    getLogo(logoCallback);
+  };
 
   const addLogoToHeader = () => {
     if (logo.reference != undefined) {
       const logoUrl: string = getImageUrl(logo.reference, 50, 50);
       return <LogoImg src={logoUrl} alt={logo.caption} />;
+    } else {
+      return <LogoImg src="./blanklogo.jpg" alt="temp logo" />;
     }
+  };
 
-    return <LogoImg src="./blanklogo.jpg" alt="temp logo" />;
+  const fillOutHeaderBurger = async () => {
+    const burgerCallback = (burgerData: CmsImage) => {
+      setBurger(burgerData);
+    };
+    getBurger(burgerCallback);
   };
 
   const addBurgerToHeader = () => {
     if (burger.reference != undefined) {
       const burgerUrl: string = getImageUrl(burger.reference, 30, 30);
-      return (
-        <BurgerImg
-          src={burgerUrl}
-          alt={burger.caption}
-          onClick={() => onClickBurger()}
-        />
-      );
+      return <BurgerImg src={burgerUrl} alt={burger.caption} />;
+    } else {
+      return <BurgerImg src="./blanklogo.jpg" alt="temp logo" />;
     }
-
-    return <BurgerImg src="./blanklogo.jpg" alt="temp logo" />;
   };
 
-  // handle clicking on the burger menu
-
-  const onClickBurger = () => {
-    setMobileSubMenuVisible(!mobileMenuVisible);
-  };
-
-  const isBreakpoint = useMediaQuery(768);
+  // return the JSX element
 
   return (
     <GlobalNav>
-      {isBreakpoint ? (
+      {isBreakpoint ? 
+      ( /* the mobile view of the global nav */ 
         <GlobalNavMobileContainer>
-          <Logo>
+          <div>
             <Link href="/">{addLogoToHeader()}</Link>
-          </Logo>
-          <GlobalNavMobileBurger>
+          </div>
+          <div>
+            <NavbarButtons>
+              <GenericButton style={ButtonTypes.ActiveCta} text="phone" />
+              <GenericButton style={ButtonTypes.ActiveCta} text="email" />
+            </NavbarButtons>
+          </div>
+          <GlobalNavMobileBurger onClick={() => callback()}>
             <GenericButton style={ButtonTypes.InactiveCta}>
               {addBurgerToHeader()}
             </GenericButton>
           </GlobalNavMobileBurger>
-          <GlobalNavMobileMenu isVisible={mobileMenuVisible}>
-            {menu[0] &&
-              menu.map((item, index) => renderMobileMenu(item, index))}
-            <Actions>
-              <NavbarButtons>
-                <GenericButton style={ButtonTypes.ActiveCta} text="phone" />
-                <GenericButton style={ButtonTypes.ActiveCta} text="email" />
-              </NavbarButtons>
-            </Actions>
-          </GlobalNavMobileMenu>
         </GlobalNavMobileContainer>
-      ) : (
+      ) : ( /* the desktop view of the global nav */ 
         <GlobalNavContainer>
           <GlobalNavItem>
-            <Logo>
+            <div>
               <Link href="/">{addLogoToHeader()}</Link>
-            </Logo>
+            </div>
           </GlobalNavItem>
           <GlobalNavItem>
             <GlobalNavMenu>
@@ -230,12 +202,12 @@ const GlobalHeader = ({}: Props): JSX.Element => {
             </GlobalNavMenu>
           </GlobalNavItem>
           <GlobalNavItem>
-            <Actions>
+            <div>
               <NavbarButtons>
                 <GenericButton style={ButtonTypes.ActiveCta} text="phone" />
                 <GenericButton style={ButtonTypes.ActiveCta} text="email" />
               </NavbarButtons>
-            </Actions>
+            </div>
           </GlobalNavItem>
         </GlobalNavContainer>
       )}

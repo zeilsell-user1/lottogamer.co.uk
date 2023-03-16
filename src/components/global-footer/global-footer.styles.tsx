@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
 export const GlobalFooterContainer = styled.div`
-  background: grey;
+  background: orange;
   text-align: center;
 `;

@@ -1,15 +1,5 @@
 import React, { ReactNode, useEffect, useState, useCallback } from "react";
 import styled from "styled-components";
-import Link from "next/link";
-
-import {
-  getLogo,
-  getNavItems,
-  getImageUrl,
-  CmsImage,
-  CmsNavItem,
-  getBurger,
-} from "../../features/cms-access";
 
 export const enum ButtonTypes {
   ActiveCta,
@@ -77,7 +67,6 @@ export const GenericButton = ({
         styleDetails.textColor = "#30220f";
         styleDetails.hoverColor = "black";
         styleDetails.border = "#30220f";
-        styleDetails.font = "Montserrat";
         break;
       }
       case ButtonTypes.InactiveCta: {
@@ -85,7 +74,6 @@ export const GenericButton = ({
         styleDetails.textColor = "#ebcea9";
         styleDetails.hoverColor = "#ebcea9";
         styleDetails.border = "#24190a";
-        styleDetails.font = "Montserrat";
         break;
       }
       case ButtonTypes.Back: {
@@ -93,7 +81,6 @@ export const GenericButton = ({
         styleDetails.textColor = "#30220f";
         styleDetails.hoverColor = "#30220f";
         styleDetails.border = "#24190a";
-        styleDetails.font = "Montserrat";
         break;
       }
       case ButtonTypes.Okay: {
@@ -101,7 +88,6 @@ export const GenericButton = ({
         styleDetails.textColor = "#30220f";
         styleDetails.hoverColor = "#f76402";
         styleDetails.border = "#24190a";
-        styleDetails.font = "Montserrat";
         break;
       }
       case ButtonTypes.Cancel: {
@@ -109,7 +95,6 @@ export const GenericButton = ({
         styleDetails.textColor = "#30220f";
         styleDetails.hoverColor = "#30220f";
         styleDetails.border = "#24190a";
-        styleDetails.font = "Montserrat";
         break;
       }
       default:
@@ -117,14 +102,11 @@ export const GenericButton = ({
         styleDetails.textColor = "#30220f";
         styleDetails.hoverColor = "#30220f";
         styleDetails.border = "#24190a";
-        styleDetails.font = "Montserrat";
     }
     return styleDetails;
   };
 
   const [buttonStyle, setButtonStyle] = useState(setStyle());
-
-  console.log(buttonStyle);
 
   return (
     <StyledButton

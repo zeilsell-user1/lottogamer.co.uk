@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 // common to both mobile and desktop
 
-export const GlobalNav = styled.div``;
-
-export const Logo = styled.div``;
+export const GlobalNav = styled.div`
+  background: orange
+`;
 
 export const LogoImg = styled.img`
   margin-left: 1vh;
@@ -12,57 +12,25 @@ export const LogoImg = styled.img`
   margin: 1vh;
 `;
 
-export const Actions = styled.div``;
-
 // mobile layout
 
 export const GlobalNavMobileContainer = styled.div`
   display: grid;
-  grid-template-columns: 2;
+  grid-template-columns: 3;
+  grid-template-areas: "logo buttons burger";
   column-gap: 1vh;
 `;
 
 export const GlobalNavMobileBurger = styled.div`
   grid-row-start 1;
-  grid-column-start: 2;
+  grid-column-start: 3;
   justify-self: end;
 `;
-
-export const Burger = styled.div``;
 
 export const BurgerImg = styled.img`
   margin-left: 1vh;
   aspect-ratio: 1;
   margin: 1vh;
-`;
-
-export const GlobalNavMobileMenu = styled.div<{ isVisible: boolean }>`
-  display: block;
-  display: ${({ isVisible }) => (isVisible ? "visible" : "none")};
-  margin: 1vh;
-`;
-
-export const NavLinkMobileContainer = styled.div`
-  color: black;
-  display: grid;
-  grid-template-columns: 2, auto);
-  grid-template-rows: repeat(5, auto);
-  align-items: start;
-  justify-items: left;
-  column-gap: 1vh;
-
-  &:hover {
-    color: red;
-  }
-`;
-
-export const NavSubLinkMobileContainer = styled.div`
-  color: black;
-  grid-column-start: 2;
-
-  &:hover {
-    color: red;
-  }
 `;
 
 // desktop layout

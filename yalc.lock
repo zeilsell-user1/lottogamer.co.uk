@@ -1,0 +1,13 @@
+{
+  "version": "v1",
+  "packages": {
+    "@zeilsell-user1/accordion-component": {
+      "signature": "0430a976dec1c1753467a6f35f54146b",
+      "file": true
+    },
+    "@zeilsell-user1/sliding-drawer-component": {
+      "signature": "23f313b6576bdcf0dc668dd7f6af038c",
+      "file": true
+    }
+  }
+}
