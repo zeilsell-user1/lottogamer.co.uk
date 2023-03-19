@@ -33,10 +33,7 @@ type Props = {
   callback: () => void;
 };
 
-const GlobalHeader = ({
-  breakpoint,
-  callback,
-}: Props): JSX.Element => {
+const GlobalHeader = ({ breakpoint, callback }: Props): JSX.Element => {
   const [menu, setMenu] = useState({} as CmsNavItem[]);
   const [logo, setLogo] = useState({} as CmsImage);
   const [burger, setBurger] = useState({} as CmsImage);
@@ -93,7 +90,7 @@ const GlobalHeader = ({
 
     return targetReached;
   };
-  
+
   const isBreakpoint = useMediaQuery(breakpoint);
 
   // functions used to grab the content and images from the CMS as callbacks
@@ -171,8 +168,8 @@ const GlobalHeader = ({
 
   return (
     <GlobalNav>
-      {isBreakpoint ? 
-      ( /* the mobile view of the global nav */ 
+      {isBreakpoint ? (
+        /* the mobile view of the global nav */
         <GlobalNavMobileContainer>
           <div>
             <Link href="/">{addLogoToHeader()}</Link>
@@ -189,7 +186,8 @@ const GlobalHeader = ({
             </GenericButton>
           </GlobalNavMobileBurger>
         </GlobalNavMobileContainer>
-      ) : ( /* the desktop view of the global nav */ 
+      ) : (
+        /* the desktop view of the global nav */
         <GlobalNavContainer>
           <GlobalNavItem>
             <div>

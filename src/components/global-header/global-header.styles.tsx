@@ -3,7 +3,7 @@ import styled from "styled-components";
 // common to both mobile and desktop
 
 export const GlobalNav = styled.div`
-  background: orange
+  background: orange;
 `;
 
 export const LogoImg = styled.img`

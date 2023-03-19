@@ -18,7 +18,7 @@ export const Banner = styled.div`
 `;
 
 export const Content = styled.div`
-  height:70%;
+  height: 70%;
   justify-self: stretch;
   align-self: stretch;
 `;

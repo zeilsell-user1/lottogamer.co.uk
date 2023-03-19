@@ -8,7 +8,7 @@ import { Page, PageItem, Banner, Content } from "./layout.styles";
 import { SlidingDrawer } from "@zeilsell-user1/sliding-drawer-component";
 import { Accordion } from "@zeilsell-user1/accordion-component";
 
-import { itemList } from '../../__mocks__/test-menu';
+import { itemList } from "../../__mocks__/test-menu";
 
 type Props = {
   children: ReactNode;
@@ -19,20 +19,19 @@ const Layout = ({
   children,
   title = "Richard George Test Site",
 }: Props): JSX.Element => {
-
   // the slider state and functions control if the slider is visible
 
   const [sliderVisible, setSliderVisible] = useState(false);
-  
+
   function onClickBurgerOpen(): void {
-    setSliderVisible(!sliderVisible);
-  };
-  
-  const onClickBurgerClose = () => {
-    setSliderVisible(!sliderVisible);
-  };
-  
-  // retunr the JSX element
+    setSliderVisible(true);
+  }
+
+  function onClickBurgerClose(): void {
+    setSliderVisible(false);
+  }
+
+  // return the JSX element
 
   return (
     <div>
@@ -46,32 +45,28 @@ const Layout = ({
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        {
-          sliderVisible && <SlidingDrawer
-              show={sliderVisible}
-              background="white"
-              color="black"
-              callback={onClickBurgerClose}
-            >
-              <Accordion items={itemList} />
-            </SlidingDrawer>
-        }
-        <Page>
-          <PageItem>
-            <GlobalHeader breakpoint={480} callback={onClickBurgerOpen} />
-          </PageItem>
-          <PageItem>
-            <Banner>banner goes here</Banner>
-          </PageItem>
-          <PageItem>
-            <Content>{children}</Content>
-          </PageItem>
-          <PageItem>
-            <GlobalFooter />
-          </PageItem>
-        </Page>
-      </div>
+      <SlidingDrawer
+        show={sliderVisible}
+        background="white"
+        color="black"
+        callback={onClickBurgerClose}
+      >
+        <Accordion items={itemList} />
+      </SlidingDrawer>
+      <Page>
+        <PageItem>
+          <GlobalHeader breakpoint={480} callback={onClickBurgerOpen} />
+        </PageItem>
+        <PageItem>
+          <Banner>banner goes here</Banner>
+        </PageItem>
+        <PageItem>
+          <Content>{children}</Content>
+        </PageItem>
+        <PageItem>
+          <GlobalFooter />
+        </PageItem>
+      </Page>
     </div>
   );
 };
