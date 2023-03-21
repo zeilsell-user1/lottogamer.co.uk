@@ -2,7 +2,7 @@
   "version": "v1",
   "packages": {
     "@zeilsell-user1/accordion-component": {
-      "signature": "0430a976dec1c1753467a6f35f54146b",
+      "signature": "5157ee68098d33a92ebb45475d6ddda3",
       "file": true
     },
     "@zeilsell-user1/sliding-drawer-component": {

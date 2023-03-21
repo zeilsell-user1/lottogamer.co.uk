@@ -8,8 +8,8 @@ import myConfiguredSanityClient from "./sanity-client";
 
 export const getNavItems = async (callback: Function) => {
   let query = `*[_type == "headernav"] | order(order) {
-        enabled, order, title, url, 
-        subMenuItems[]->{enabled, order, title, url, icon}}`;
+    key, enabled, title, description, url, 
+    subMenuItems[]->{key, enabled, title, description, url}}`;
   await cmsAccess(query).then((navItems) => {
     if (navItems) {
       callback(navItems);

@@ -1,15 +1,17 @@
 export type CmsNavItem = {
+  key: string;
   enabled: boolean;
-  order: number;
   title: string;
-  url: string;
+  description?: string;
+  url?: string;
   subMenuItems?: CmsSubNavItem[];
 };
+
 export type CmsSubNavItem = {
+  key: string;
   enabled: boolean;
-  order: number;
-  icon: string;
   title: string;
+  description?: string;
   url: string;
 };
 

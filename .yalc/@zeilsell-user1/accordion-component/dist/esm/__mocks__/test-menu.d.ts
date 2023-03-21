@@ -1,2 +1,2 @@
-import { Item } from "../accordion";
-export declare const itemList: Item[];
+import { AccordionItem } from "../accordion";
+export declare const itemList: AccordionItem[];

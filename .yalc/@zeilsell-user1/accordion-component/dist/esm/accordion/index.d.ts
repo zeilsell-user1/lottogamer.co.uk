@@ -1,2 +1,2 @@
-export { Accordion, } from "./accordion";
-export { Item, SubItem } from "./accordion.types";
+export { Accordion } from "./accordion";
+export { AccordionItem, AccordionSubItem } from "./accordion.types";

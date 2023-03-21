@@ -1,0 +1,63 @@
+.globalnav {
+  background: orange;
+}
+
+.globalnavmobilecontainer 
+{  
+  display: grid;
+  grid-template-columns: 3;
+  grid-template-areas: "logo buttons burger";
+  column-gap: 1vh;
+}
+
+.globalnavmobileburger
+{  
+  grid-row-start: 1;
+  grid-column-start: 3;
+  justify-self: end;
+}
+
+.logoimg 
+{  
+  margin-left: 1vh;
+  aspect-ratio: 1;
+  margin: 1vh;
+}
+
+.burgerimg
+{  
+  margin-left: 1vh;
+  aspect-ratio: 1;
+  margin: 1vh;
+}
+
+.globalnavcontainer
+{  
+  display: grid;
+  grid-template-columns: 1fr 6fr 3fr;
+  grid-template-areas: "logo links buttons";
+  column-gap: 1vh;
+}
+
+.globalnavitem
+{  
+  justify-self: stretch;
+  align-self: stretch;
+}
+
+.globalnavmenu
+{  
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  margin: 1vh;
+  align-items: start;
+  justify-items: center;
+  column-gap: 1vh;
+}
+
+.navbarbuttons
+{  
+  display: grid;
+  grid-template-columns: 1fr;
+}
+

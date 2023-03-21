@@ -1,23 +1,23 @@
 /// <reference types="react" />
-interface SubItem {
+interface AccordionSubItem {
     key: string;
     enabled: boolean;
     title: string;
     description?: string;
     url: string;
 }
-interface Item {
+interface AccordionItem {
     key: string;
     enabled: boolean;
     title: string;
     description?: string;
-    subItems?: SubItem[];
+    subItems?: AccordionSubItem[];
     url?: string;
 }
 
 interface Props {
-    items: Item[];
+    items: AccordionItem[];
 }
-declare const Accordion: ({ items, }: Props) => JSX.Element;
+declare const Accordion: ({ items }: Props) => JSX.Element;
 
-export { Accordion, Item, SubItem };
+export { Accordion, AccordionItem, AccordionSubItem };
