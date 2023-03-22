@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import NavLink from "./nav-link";
 import styles from "./global-header.module.css";
@@ -23,7 +24,6 @@ type Props = {
 };
 
 const GlobalHeader = ({ menu, breakpoint, callback }: Props): JSX.Element => {
-
   // read the header logo and nav data from the CMS on every page load
 
   const [logo, setLogo] = useState({} as CmsImage);
@@ -35,7 +35,7 @@ const GlobalHeader = ({ menu, breakpoint, callback }: Props): JSX.Element => {
     };
     getLogo(logoCallback);
   };
-  
+
   const fillOutHeaderBurger = async () => {
     const burgerCallback = (burgerData: CmsImage) => {
       setBurger(burgerData);
@@ -83,7 +83,7 @@ const GlobalHeader = ({ menu, breakpoint, callback }: Props): JSX.Element => {
 
   const renderMenu = (item: CmsNavItem, index: number): JSX.Element => {
     if (!item?.enabled || !item?.url) {
-      return <div/>;
+      return <div />;
     }
     return (
       <NavLink
@@ -101,18 +101,34 @@ const GlobalHeader = ({ menu, breakpoint, callback }: Props): JSX.Element => {
   const addLogoToHeader = () => {
     if (logo.reference != undefined) {
       const logoUrl: string = getImageUrl(logo.reference, 50, 50);
-      return <img className={styles.logoimg} src={logoUrl} alt={logo.caption} />;
+      return (
+        <Image className={styles.logoImage} src={logoUrl} alt={logo.caption} />
+      );
     } else {
-      return <img className={styles.logoimg} src="./blanklogo.jpg" alt="temp logo" />;
+      return (
+        <Image className={styles.logoImage} src="./blanklogo.jpg" alt="temp logo" />
+      );
     }
   };
 
   const addBurgerToHeader = () => {
     if (burger.reference != undefined) {
       const burgerUrl: string = getImageUrl(burger.reference, 30, 30);
-      return <img className={styles.burgerimg} src={burgerUrl} alt={burger.caption} />;
+      return (
+        <Image
+          className={styles.burgerImage}
+          src={burgerUrl}
+          alt={burger.caption}
+        />
+      );
     } else {
-      return <img className={styles.burgerimg} src="./blanklogo.jpg" alt="temp logo" />;
+      return (
+        <Image
+          className={styles.burgerImage}
+          src="./blanklogo.jpg"
+          alt="temp logo"
+        />
+      );
     }
   };
 
@@ -132,7 +148,10 @@ const GlobalHeader = ({ menu, breakpoint, callback }: Props): JSX.Element => {
               <GenericButton style={ButtonTypes.ActiveCta} text="email" />
             </div>
           </div>
-          <div className={styles.globalnavmobileburger} onClick={() => callback()}>
+          <div
+            className={styles.globalnavmobileburger}
+            onClick={() => callback()}
+          >
             <GenericButton style={ButtonTypes.InactiveCta}>
               {addBurgerToHeader()}
             </GenericButton>
@@ -142,7 +161,7 @@ const GlobalHeader = ({ menu, breakpoint, callback }: Props): JSX.Element => {
         /* the desktop view of the global nav */
         <div className={styles.globalnavcontainer}>
           <div className={styles.globalnavitem}>
-              <Link href="/">{addLogoToHeader()}</Link>
+            <Link href="/">{addLogoToHeader()}</Link>
           </div>
           <div className={styles.globalnavitem}>
             <div className={styles.globalnavmenu}>

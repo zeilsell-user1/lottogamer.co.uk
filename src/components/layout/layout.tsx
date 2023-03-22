@@ -4,8 +4,16 @@ import GlobalHeader from "../global-header/global-header";
 import GlobalFooter from "../global-footer/global-footer";
 import { Page, PageItem, Banner, Content } from "./layout.styles";
 import { SlidingDrawer } from "@zeilsell-user1/sliding-drawer-component";
-import { Accordion, AccordionItem, AccordionSubItem } from "@zeilsell-user1/accordion-component";
-import { CmsNavItem, CmsSubNavItem, getNavItems } from "@/src/features/cms-access";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionSubItem,
+} from "@zeilsell-user1/accordion-component";
+import {
+  CmsNavItem,
+  CmsSubNavItem,
+  getNavItems,
+} from "@/src/features/cms-access";
 
 type Props = {
   children: ReactNode;
@@ -16,8 +24,7 @@ const Layout = ({
   children,
   title = "Richard George Test Site",
 }: Props): JSX.Element => {
-
-  // the top level layout is a slider for when in mobile view and the page. 
+  // the top level layout is a slider for when in mobile view and the page.
   // The slider state and functions control if the slider is visible
 
   const [sliderVisible, setSliderVisible] = useState(false);
@@ -31,9 +38,9 @@ const Layout = ({
   }
 
   // The menu is read from the CMS. The menu is displayed in the slider as an
-  // accordion if in mobile view or int he header if in desktop. The functions 
+  // accordion if in mobile view or int he header if in desktop. The functions
   // in this section are used to grab the content of the menu from the CMS and
-  // to map the CMS menu to the format expected by the accordion.  
+  // to map the CMS menu to the format expected by the accordion.
 
   const [desktopMenu, setDesktopMenu] = useState([] as CmsNavItem[]);
   const [mobileMenu, setMobileMenu] = useState([] as AccordionItem[]);
@@ -41,37 +48,49 @@ const Layout = ({
   // read the header logo and nav data from the CMS on every page load
 
   useEffect(() => {
-    let mobileMenu : AccordionItem[] = [] as AccordionItem[];
+    let mobileMenu: AccordionItem[] = [] as AccordionItem[];
 
-    function mapSubItem(menuSubItem:CmsSubNavItem, mobileSubItems:AccordionSubItem[] | undefined) {
-      let mobileSubItem:AccordionSubItem = {
-        key : menuSubItem.key,
+    function mapSubItem(
+      menuSubItem: CmsSubNavItem,
+      mobileSubItems: AccordionSubItem[] | undefined
+    ) {
+      let mobileSubItem: AccordionSubItem = {
+        key: menuSubItem.key,
         enabled: menuSubItem.enabled,
         title: menuSubItem.title,
         description: menuSubItem.description,
-        url: menuSubItem.url};
-  
+        url: menuSubItem.url,
+      };
+
       if (!mobileSubItems) mobileSubItems = [] as AccordionSubItem[];
 
       mobileSubItems.push(mobileSubItem);
     }
 
-    function mapItem(menuItem:CmsNavItem) {
-      let mobileItem : AccordionItem = {
+    function mapItem(menuItem: CmsNavItem) {
+      let mobileItem: AccordionItem = {
         key: menuItem.key,
         enabled: menuItem.enabled,
         title: menuItem.title,
         description: menuItem.description,
         url: menuItem.url,
-        subItems: [] as AccordionSubItem[]};
-1
-        menuItem.subMenuItems?.map((subMenuItem) => mapSubItem(subMenuItem, mobileItem.subItems));
-          
-        mobileMenu.push(mobileItem);
+        subItems: [] as AccordionSubItem[],
+      };
+      1;
+      menuItem.subMenuItems?.map((subMenuItem) =>
+        mapSubItem(subMenuItem, mobileItem.subItems)
+      );
+
+      // set the subitems to undefined as expected by accordion
+      if (mobileItem.subItems?.length == 0) mobileItem.subItems = undefined;
+
+      mobileMenu.push(mobileItem);
     }
 
-      function mapMenuToAccordionItems(menu:CmsNavItem[]) : AccordionItem[] {
-      menu[0] ? menu.map((item) => mapItem(item)) : mobileMenu = [] as AccordionItem[];
+    function mapMenuToAccordionItems(menu: CmsNavItem[]): AccordionItem[] {
+      menu[0]
+        ? menu.map((item) => mapItem(item))
+        : (mobileMenu = [] as AccordionItem[]);
 
       console.log("mobile menu is ", mobileMenu);
       return mobileMenu;
@@ -86,7 +105,6 @@ const Layout = ({
     };
 
     fillOutHeaderNavigationLinks();
-
   }, []);
 
   // return the JSX element
@@ -105,7 +123,11 @@ const Layout = ({
       </Head>
       <Page>
         <PageItem>
-          <GlobalHeader breakpoint={480} menu={desktopMenu} callback={onClickBurgerOpen} />
+          <GlobalHeader
+            breakpoint={480}
+            menu={desktopMenu}
+            callback={onClickBurgerOpen}
+          />
         </PageItem>
         <PageItem>
           <Banner>banner goes here</Banner>
@@ -118,7 +140,7 @@ const Layout = ({
         </PageItem>
       </Page>
 
-      <SlidingDrawer 
+      <SlidingDrawer
         show={sliderVisible}
         background="white"
         color="black"

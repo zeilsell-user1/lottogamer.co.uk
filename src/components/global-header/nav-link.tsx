@@ -9,16 +9,19 @@ type Props = {
   subMenuItems?: CmsSubNavItem[];
 };
 
-const NavLink = ({url, title, description, subMenuItems }: Props): JSX.Element => {
+const NavLink = ({
+  url,
+  title,
+  description,
+  subMenuItems,
+}: Props): JSX.Element => {
   const [subMenuVisible, setSubMenuVisible] = useState(false);
 
   const renderSubMenu = (item: CmsSubNavItem) => {
     return (
       <div key={item.key}>
-        {subMenuVisible && <Link href={item.url}>
-          {item.title}
-        </Link>}
-      </div> 
+        {subMenuVisible && <Link href={item.url}>{item.title}</Link>}
+      </div>
     );
   };
 
@@ -26,9 +29,10 @@ const NavLink = ({url, title, description, subMenuItems }: Props): JSX.Element =
     return <div />;
   }
   return (
-    <div 
+    <div
       onMouseEnter={() => setSubMenuVisible(true)}
-      onMouseLeave={() => setSubMenuVisible(false)} >
+      onMouseLeave={() => setSubMenuVisible(false)}
+    >
       <Link href={url}> {title} </Link>
       {subMenuItems && subMenuItems.map((si) => renderSubMenu(si))}
     </div>

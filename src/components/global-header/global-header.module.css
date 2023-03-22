@@ -2,51 +2,44 @@
   background: orange;
 }
 
-.globalnavmobilecontainer 
-{  
+.globalnavmobilecontainer {
   display: grid;
   grid-template-columns: 3;
   grid-template-areas: "logo buttons burger";
   column-gap: 1vh;
 }
 
-.globalnavmobileburger
-{  
+.globalnavmobileburger {
   grid-row-start: 1;
   grid-column-start: 3;
   justify-self: end;
 }
 
-.logoimg 
-{  
+.logoimg {
   margin-left: 1vh;
   aspect-ratio: 1;
   margin: 1vh;
 }
 
-.burgerimg
-{  
+.burgerimg {
   margin-left: 1vh;
   aspect-ratio: 1;
   margin: 1vh;
 }
 
-.globalnavcontainer
-{  
+.globalnavcontainer {
   display: grid;
   grid-template-columns: 1fr 6fr 3fr;
   grid-template-areas: "logo links buttons";
   column-gap: 1vh;
 }
 
-.globalnavitem
-{  
+.globalnavitem {
   justify-self: stretch;
   align-self: stretch;
 }
 
-.globalnavmenu
-{  
+.globalnavmenu {
   display: grid;
   grid-template-columns: repeat(5, auto);
   margin: 1vh;
@@ -55,9 +48,7 @@
   column-gap: 1vh;
 }
 
-.navbarbuttons
-{  
+.navbarbuttons {
   display: grid;
   grid-template-columns: 1fr;
 }
-
