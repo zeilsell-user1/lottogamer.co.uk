@@ -1,15 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
-import styled from "styled-components";
 import { get404Image, CmsImage, getImageUrl } from "../src/features/cms-access";
 import Layout from "../src/components/layout/layout";
 import styles from "../styles/Home.module.css";
-
-const ImgError = styled.img`
-  margin-left: 1vh;
-  aspect-ratio: 1;
-  margin: 2vh;
-`;
 
 export default function Error(): JSX.Element {
   const [img, setImg] = useState({} as CmsImage);
@@ -34,7 +28,7 @@ export default function Error(): JSX.Element {
       altText = img.caption;
     }
 
-    return <ImgError src={imgUrl} alt={altText} />;
+    return <Image className={styles.imgerror} src={imgUrl} height="200" width="200" alt={altText} />;
   };
 
   return (

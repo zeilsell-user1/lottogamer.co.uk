@@ -1,6 +1,6 @@
 {
   "name": "lottogamer-website",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -25,7 +25,6 @@
     "react-dom": "18.2.0",
     "react-is": "^18.2.0",
     "reactjs-popup": "^2.0.5",
-    "styled-components": "^5.3.6",
     "stylelint": "^15.3.0"
   },
   "devDependencies": {

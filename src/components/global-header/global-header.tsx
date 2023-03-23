@@ -15,7 +15,7 @@ import {
   getBurger,
 } from "../../features/cms-access";
 
-import { GenericButton, ButtonTypes } from "../generic-button/generic-button";
+import { GenericButton, ButtonTypes } from "../generic-button";
 
 type Props = {
   menu: CmsNavItem[];
@@ -102,11 +102,15 @@ const GlobalHeader = ({ menu, breakpoint, callback }: Props): JSX.Element => {
     if (logo.reference != undefined) {
       const logoUrl: string = getImageUrl(logo.reference, 50, 50);
       return (
-        <Image className={styles.logoImage} src={logoUrl} width="50" height="50" alt={logo.caption} />
+        <div className={styles.imagediv}>
+          <Image className={styles.logoImage} src={logoUrl} width="50" height="50" alt={logo.caption} />
+        </div>
       );
     } else {
       return (
-        <Image className={styles.logoImage} src="/blanklogo.jpg" width="50" height="50" alt="temp logo" />
+        <div className={styles.imagediv}>
+          <Image className={styles.logoImage} src="/blanklogo.jpg" width="50" height="50" alt="temp logo" />
+        </div>
       );
     }
   };

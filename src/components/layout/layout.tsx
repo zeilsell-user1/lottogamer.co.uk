@@ -2,7 +2,7 @@ import React, { ReactNode, useEffect, useState } from "react";
 import Head from "next/head";
 import GlobalHeader from "../global-header/global-header";
 import GlobalFooter from "../global-footer/global-footer";
-import { Page, PageItem, Banner, Content } from "./layout.styles";
+import styles from "./layout.module.css";
 import { SlidingDrawer } from "@zeilsell-user1/sliding-drawer-component";
 import {
   Accordion,
@@ -121,24 +121,24 @@ const Layout = ({
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Page>
-        <PageItem>
+      <div className={styles.page}>
+        <div className={styles.pageitem}>
           <GlobalHeader
             breakpoint={480}
             menu={desktopMenu}
             callback={onClickBurgerOpen}
           />
-        </PageItem>
-        <PageItem>
-          <Banner>banner goes here</Banner>
-        </PageItem>
-        <PageItem>
-          <Content>{children}</Content>
-        </PageItem>
-        <PageItem>
+        </div>
+        <div className={styles.pageitem}>
+          <div className={styles.banner}>banner goes here</div>
+        </div>
+        <div className={styles.pageitem}>
+          <div className={styles.content}>{children}</div>
+        </div>
+        <div className={styles.pageitem}>
           <GlobalFooter />
-        </PageItem>
-      </Page>
+        </div>
+      </div>
 
       <SlidingDrawer
         show={sliderVisible}

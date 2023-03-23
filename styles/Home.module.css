@@ -127,3 +127,9 @@
     filter: invert(1);
   }
 }
+
+.imgerror {
+  margin-left: 1vh;
+  aspect-ratio: 1;
+  margin: 2vh;
+}

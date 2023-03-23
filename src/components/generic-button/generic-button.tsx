@@ -1,13 +1,6 @@
 import React, { ReactNode, useEffect, useState, useCallback } from "react";
-import styled from "styled-components";
-
-export const enum ButtonTypes {
-  ActiveCta,
-  InactiveCta,
-  Back,
-  Okay,
-  Cancel,
-}
+import styles from "./generic-button.module.css";
+import { ButtonTypes } from "./generic-button.types";
 
 type Props = {
   children?: ReactNode;
@@ -16,40 +9,13 @@ type Props = {
   text?: string;
 };
 
-const StyledButton = styled.button<{
-  color: string;
-  background: string;
-  border: string;
-  font: string;
-  hoverColor: string;
-}>`
-  cursor: pointer;
-  border-radius: 5%;
-  font: ${({ font }) => (font ? font : "Poppins")};
-  font-size: 2vh;
-  background: ${({ background }) => (background ? background : "white")};
-  color: ${({ color }) => (color ? color : "black")};
-  border: 1px solid ${({ border }) => (border ? border : "black")};
-  margin: 1vh;
-
-  &:hover {
-    color: ${({ hoverColor }) => (hoverColor ? hoverColor : "black")};
-    position: relative;
-    box-shadow: 0 1rem 2.5rem rgba(22, 28, 45, 0.1),
-      0 0.5rem 1rem -0.75rem rgba(22, 28, 45, 0.1) !important;
-    -webkit-transition: all 0.3s ease-out;
-    -moz-transition: all 0.3s ease-out;
-    -o-transition: all 0.3s ease-out;
-    transition: all 0.3s ease-out;
-  }
-`;
-
 export const GenericButton = ({
   children,
   style,
   onCLick,
   text,
 }: Props): JSX.Element => {
+
   type ButtonStyle = {
     textColor: string;
     hoverColor: string;
@@ -59,6 +25,7 @@ export const GenericButton = ({
   };
 
   const setStyle = (): ButtonStyle => {
+    
     let styleDetails: ButtonStyle = {} as ButtonStyle;
 
     switch (style) {
@@ -109,15 +76,16 @@ export const GenericButton = ({
   const [buttonStyle, setButtonStyle] = useState(setStyle());
 
   return (
-    <StyledButton
-      background={buttonStyle.background}
-      color={buttonStyle.textColor}
-      hoverColor={buttonStyle.hoverColor}
-      border={buttonStyle.border}
-      font={buttonStyle.font}
+    <button className={styles.button} style={{
+      background:buttonStyle.background,
+      color:buttonStyle.textColor,
+      //hoverColor:buttonStyle.hoverColor,
+      //border:1px solid buttonStyle.border,
+      font:buttonStyle.font
+    }}
     >
       {text}
       {children}
-    </StyledButton>
+    </button>
   );
 };

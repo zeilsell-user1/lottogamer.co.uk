@@ -1,12 +1,12 @@
-import { GlobalFooterContainer } from "./global-footer.styles";
+import styles from "./global-footer.module.css";
 
 type Props = {};
 
 const GlobalFooter = ({}: Props): JSX.Element => {
   return (
-    <GlobalFooterContainer>
+    <div className={styles.globalfootercontainer}>
       <p>Powered By Electricity!</p>
-    </GlobalFooterContainer>
+    </div>
   );
 };
 
