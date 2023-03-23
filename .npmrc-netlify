@@ -1,3 +1,3 @@
 @zeilsell-user1:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=${GITHUB_PACKAGES_KEY}
+npm.pkg.github.com/:_authToken=${GITHUB_PACKAGES_KEY}
 legacy-peer-deps=true
