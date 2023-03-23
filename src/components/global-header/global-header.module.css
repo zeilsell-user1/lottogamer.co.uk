@@ -51,4 +51,11 @@
 .navbarbuttons {
   display: grid;
   grid-template-columns: 1fr;
+  padding: 5%;
+}
+
+.imagediv {
+  display: flex;
+  justify-content: center;
+  padding: 10%;
 }

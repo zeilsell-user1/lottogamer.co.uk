@@ -8,6 +8,16 @@ const nextConfig = {
     // Enables the styled-components SWC transform
     styledComponents: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        port: '',
+        pathname: '/images/z78d3ycf/production/**',
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

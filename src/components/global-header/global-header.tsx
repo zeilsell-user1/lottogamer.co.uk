@@ -102,11 +102,11 @@ const GlobalHeader = ({ menu, breakpoint, callback }: Props): JSX.Element => {
     if (logo.reference != undefined) {
       const logoUrl: string = getImageUrl(logo.reference, 50, 50);
       return (
-        <Image className={styles.logoImage} src={logoUrl} alt={logo.caption} />
+        <Image className={styles.logoImage} src={logoUrl} width="50" height="50" alt={logo.caption} />
       );
     } else {
       return (
-        <Image className={styles.logoImage} src="./blanklogo.jpg" alt="temp logo" />
+        <Image className={styles.logoImage} src="/blanklogo.jpg" width="50" height="50" alt="temp logo" />
       );
     }
   };
@@ -118,6 +118,8 @@ const GlobalHeader = ({ menu, breakpoint, callback }: Props): JSX.Element => {
         <Image
           className={styles.burgerImage}
           src={burgerUrl}
+          width="50"
+          height="50"
           alt={burger.caption}
         />
       );
@@ -125,7 +127,9 @@ const GlobalHeader = ({ menu, breakpoint, callback }: Props): JSX.Element => {
       return (
         <Image
           className={styles.burgerImage}
-          src="./blanklogo.jpg"
+          src="/blanklogo.jpg"
+          width="50" 
+          height="50"
           alt="temp logo"
         />
       );
@@ -139,7 +143,7 @@ const GlobalHeader = ({ menu, breakpoint, callback }: Props): JSX.Element => {
       {isBreakpoint ? (
         /* the mobile view of the global nav */
         <div className={styles.globalnavmobilecontainer}>
-          <div>
+          <div className={styles.imagediv}>
             <Link href="/">{addLogoToHeader()}</Link>
           </div>
           <div>
