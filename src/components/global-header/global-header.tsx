@@ -103,13 +103,25 @@ const GlobalHeader = ({ menu, breakpoint, callback }: Props): JSX.Element => {
       const logoUrl: string = getImageUrl(logo.reference, 50, 50);
       return (
         <div className={styles.imagediv}>
-          <Image className={styles.logoImage} src={logoUrl} width="50" height="50" alt={logo.caption} />
+          <Image
+            className={styles.logoImage}
+            src={logoUrl}
+            width="50"
+            height="50"
+            alt={logo.caption}
+          />
         </div>
       );
     } else {
       return (
         <div className={styles.imagediv}>
-          <Image className={styles.logoImage} src="/blanklogo.jpg" width="50" height="50" alt="temp logo" />
+          <Image
+            className={styles.logoImage}
+            src="/blanklogo.jpg"
+            width="50"
+            height="50"
+            alt="temp logo"
+          />
         </div>
       );
     }
@@ -132,7 +144,7 @@ const GlobalHeader = ({ menu, breakpoint, callback }: Props): JSX.Element => {
         <Image
           className={styles.burgerImage}
           src="/blanklogo.jpg"
-          width="50" 
+          width="50"
           height="50"
           alt="temp logo"
         />

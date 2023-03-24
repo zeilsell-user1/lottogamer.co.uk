@@ -1,9 +1,7 @@
-
 export const enum ButtonTypes {
-    ActiveCta,
-    InactiveCta,
-    Back,
-    Okay,
-    Cancel,
-  }
-  
+  ActiveCta,
+  InactiveCta,
+  Back,
+  Okay,
+  Cancel,
+}

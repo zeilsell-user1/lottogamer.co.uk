@@ -15,7 +15,6 @@ export const GenericButton = ({
   onCLick,
   text,
 }: Props): JSX.Element => {
-
   type ButtonStyle = {
     textColor: string;
     hoverColor: string;
@@ -25,7 +24,6 @@ export const GenericButton = ({
   };
 
   const setStyle = (): ButtonStyle => {
-    
     let styleDetails: ButtonStyle = {} as ButtonStyle;
 
     switch (style) {
@@ -76,13 +74,15 @@ export const GenericButton = ({
   const [buttonStyle, setButtonStyle] = useState(setStyle());
 
   return (
-    <button className={styles.button} style={{
-      background:buttonStyle.background,
-      color:buttonStyle.textColor,
-      //hoverColor:buttonStyle.hoverColor,
-      //border:1px solid buttonStyle.border,
-      font:buttonStyle.font
-    }}
+    <button
+      className={styles.button}
+      style={{
+        background: buttonStyle.background,
+        color: buttonStyle.textColor,
+        //hoverColor:buttonStyle.hoverColor,
+        //border:1px solid buttonStyle.border,
+        font: buttonStyle.font,
+      }}
     >
       {text}
       {children}

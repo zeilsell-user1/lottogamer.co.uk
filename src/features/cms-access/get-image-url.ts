@@ -11,5 +11,11 @@ export const getImageUrl = (
   width ? width : (width = 500);
   height ? height : (height = 500);
 
-  return builder.image(reference).width(width).height(height).format('png').url().toString();
+  return builder
+    .image(reference)
+    .width(width)
+    .height(height)
+    .format("png")
+    .url()
+    .toString();
 };

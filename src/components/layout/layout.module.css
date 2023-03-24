@@ -1,4 +1,4 @@
-.page  {
+.page {
   display: grid;
   grid-template-columns: 1fr;
 }
@@ -15,9 +15,8 @@
   text-align: center;
 }
 
-.content{
+.content {
   height: 70%;
   justify-self: stretch;
   align-self: stretch;
 }
-

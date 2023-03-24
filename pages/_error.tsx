@@ -28,7 +28,15 @@ export default function Error(): JSX.Element {
       altText = img.caption;
     }
 
-    return <Image className={styles.imgerror} src={imgUrl} height="200" width="200" alt={altText} />;
+    return (
+      <Image
+        className={styles.imgerror}
+        src={imgUrl}
+        height="200"
+        width="200"
+        alt={altText}
+      />
+    );
   };
 
   return (
