@@ -19,6 +19,7 @@
     "@types/react-dom": "18.0.10",
     "@types/styled-components": "^5.1.26",
     "@zeilsell-user1/accordion-component": "^1.2.0",
+    "@zeilsell-user1/cross-sell-component": "^0.1.0",
     "@zeilsell-user1/sliding-drawer-component": "^0.1.0",
     "next": "13.1.2",
     "react": "18.2.0",

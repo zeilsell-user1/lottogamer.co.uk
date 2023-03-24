@@ -512,6 +512,11 @@
   dependencies:
     reactjs-popup "^2.0.5"
 
+"@zeilsell-user1/cross-sell-component@^0.1.0":
+  version "0.1.0"
+  resolved "https://npm.pkg.github.com/download/@zeilsell-user1/cross-sell-component/0.1.0/df6540a6f040508a839939319b88b3160d780035#df6540a6f040508a839939319b88b3160d780035"
+  integrity sha512-Rs3pPwJurJBfCMWGV6C7MTSc16VZ4fyePlF8q6wkjF7z9hIBLO6/OwCkFSOZolhVkUmCenAoeMzTIuTpeXnPwA==
+
 "@zeilsell-user1/sliding-drawer-component@^0.1.0":
   version "0.1.2"
   resolved "https://npm.pkg.github.com/download/@zeilsell-user1/sliding-drawer-component/0.1.2/f71526f43aaec258aa444f0e71b0e9a33f95d124#f71526f43aaec258aa444f0e71b0e9a33f95d124"
