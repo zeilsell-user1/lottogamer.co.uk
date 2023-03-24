@@ -5,7 +5,9 @@ export default function poolsProductPage(): JSX.Element {
   return (
     <div className={styles.container}>
       <Layout title="Richard's pools product page">
-        <p>This page contains the pools products</p>
+        <div className={styles.pagesection}>
+          <p>This page contains the pools products</p>
+        </div>
       </Layout>
     </div>
   );

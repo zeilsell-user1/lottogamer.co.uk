@@ -10,7 +10,7 @@ export default function Home(): JSX.Element {
   return (
     <div className={styles.container}>
       <Layout title="lottogamer.co.uk - the coolest site for lotto games!">
-        <div className={styles.page}>
+        <div className={styles.pagesection}>
           <h1>Welcome to lottogamer.co.uk!</h1>
           <h2>
             We are the #1 place in the UK to find games, tools and fun based on lotto
@@ -21,7 +21,7 @@ export default function Home(): JSX.Element {
           </p>
           <p>We are NOT a gambling site!</p>
         </div>
-        <div className={styles.page}>
+        <div className={styles.pagesection}>
           <CrossSellTile
             imageUrl="./bingo-7318132_1280.jpg"
             targetUrl="product/lotto"

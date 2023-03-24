@@ -6,11 +6,9 @@ export default function product(): JSX.Element {
   return (
     <div className={styles.container}>
       <Layout title="lottogamer.co.uk product hub page">
-        <p>This is a page for SEO additions</p>
-        <div>
+        <div className={styles.pagesection}>
+          <p>This is a page for SEO additions</p>
           <Link href="/product/lotto">Lotto Games</Link>
-        </div>
-        <div>
           <Link href="/product/pools">Pools Games</Link>
         </div>
       </Layout>

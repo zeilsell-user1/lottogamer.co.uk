@@ -1,5 +1,12 @@
 .container {
-  padding: 0 2rem;
+  padding: 0;
+}
+
+.pagesection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .main {
@@ -106,13 +113,6 @@
 .logo {
   height: 1em;
   margin-left: 0.5rem;
-}
-
-.page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 @media (max-width: 600px) {

@@ -42,9 +42,11 @@ export default function Error(): JSX.Element {
   return (
     <div className={styles.container}>
       <Layout title="Richard's error page">
-        <h1>General Error - Page Not Served Up</h1>
-        <Link href="/"> Go back home </Link>
-        <div>{addImageToError()}</div>
+        <div className={styles.pagesection}>
+          <h1>General Error - Page Not Served Up</h1>
+          <Link href="/"> Go back home </Link>
+          {addImageToError()}
+        </div>
       </Layout>
     </div>
   );

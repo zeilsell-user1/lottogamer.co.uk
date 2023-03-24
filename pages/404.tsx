@@ -24,7 +24,7 @@ export default function FourOhFour(): JSX.Element {
     let altText: string = "temp 404 image";
 
     if (img.reference != undefined) {
-      imgUrl = getImageUrl(img.reference, 200, 200);
+      imgUrl = getImageUrl(img.reference, 400, 400);
       altText = img.caption;
     }
 
@@ -32,8 +32,8 @@ export default function FourOhFour(): JSX.Element {
       <Image
         className={styles.imgerror}
         src={imgUrl}
-        height="200"
-        width="200"
+        height="400"
+        width="400"
         alt={altText}
       />
     );
@@ -42,9 +42,11 @@ export default function FourOhFour(): JSX.Element {
   return (
     <div className={styles.container}>
       <Layout title="Richard's 404 page">
-        <h1>404 - Page Not Found</h1>
-        <Link href="/"> Go back home </Link>
-        <div>{addImageTo404()}</div>
+        <div className={styles.pagesection}>
+          <h1>404 - Page Not Found</h1>
+          <Link href="/"> Go back home </Link>
+          {addImageTo404()}
+        </div>
       </Layout>
     </div>
   );
