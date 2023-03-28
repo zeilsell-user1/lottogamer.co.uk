@@ -20,7 +20,7 @@ export default function Error(): JSX.Element {
   };
 
   const addImageToError = () => {
-    let imgUrl: string = "./blank404.jpg";
+    let imgUrl: string = "/blank404.jpg";
     let altText: string = "temp 404 image";
 
     if (img.reference != undefined) {
