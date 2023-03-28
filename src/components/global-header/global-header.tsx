@@ -15,7 +15,10 @@ import {
   getBurger,
 } from "../../features/cms-access";
 
-import { GenericButton, ButtonTypes } from "../generic-button";
+import {
+  GenericButton,
+  ButtonStyles,
+} from "@zeilsell-user1/generic-button-component";
 
 type Props = {
   menu: CmsNavItem[];
@@ -164,15 +167,15 @@ const GlobalHeader = ({ menu, breakpoint, callback }: Props): JSX.Element => {
           </div>
           <div>
             <div className={styles.navbarbuttons}>
-              <GenericButton style={ButtonTypes.ActiveCta} text="phone" />
-              <GenericButton style={ButtonTypes.ActiveCta} text="email" />
+              <GenericButton style={ButtonStyles.ACTIVECTA} text="phone" />
+              <GenericButton style={ButtonStyles.ACTIVECTA} text="email" />
             </div>
           </div>
           <div
             className={styles.globalnavmobileburger}
             onClick={() => callback()}
           >
-            <GenericButton style={ButtonTypes.InactiveCta}>
+            <GenericButton style={ButtonStyles.INACTIVECTA}>
               {addBurgerToHeader()}
             </GenericButton>
           </div>
@@ -191,8 +194,8 @@ const GlobalHeader = ({ menu, breakpoint, callback }: Props): JSX.Element => {
           <div className={styles.globalnavitem}>
             <div>
               <div className={styles.navbarbuttons}>
-                <GenericButton style={ButtonTypes.ActiveCta} text="phone" />
-                <GenericButton style={ButtonTypes.ActiveCta} text="email" />
+                <GenericButton style={ButtonStyles.ACTIVECTA} text="phone" />
+                <GenericButton style={ButtonStyles.ACTIVECTA} text="email" />
               </div>
             </div>
           </div>

@@ -13,7 +13,8 @@ export default function Home(): JSX.Element {
         <div className={styles.pagesection}>
           <h1>Welcome to lottogamer.co.uk!</h1>
           <h2>
-            We are the #1 place in the UK to find games, tools and fun based on lotto
+            We are the #1 place in the UK to find games, tools and fun based on
+            lotto
           </h2>
           <p>
             Do you want to know what are your lucky numbers? How about the

@@ -122,14 +122,14 @@ const Layout = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.page}>
-          <GlobalHeader
-            breakpoint={480}
-            menu={desktopMenu}
-            callback={onClickBurgerOpen}
-          />
-          <div className={styles.banner}>banner goes here</div>
-          <div className={styles.content}>{children}</div>
-          <GlobalFooter />
+        <GlobalHeader
+          breakpoint={480}
+          menu={desktopMenu}
+          callback={onClickBurgerOpen}
+        />
+        <div className={styles.banner}>banner goes here</div>
+        <div className={styles.content}>{children}</div>
+        <GlobalFooter />
       </div>
 
       <SlidingDrawer
