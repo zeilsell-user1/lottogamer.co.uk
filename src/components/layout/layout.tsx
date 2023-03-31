@@ -34,7 +34,9 @@ const RootLayout = ({
         callback={onClickBurgerClose}
       >
         <Accordion items={mobileMenu} />
-      </SlidingDrawer>, document.getElementById('slider'));
+      </SlidingDrawer>,
+      document.getElementById("slider")
+    );
   }
 
   function onClickBurgerClose(): void {
@@ -46,7 +48,9 @@ const RootLayout = ({
         callback={onClickBurgerClose}
       >
         <Accordion items={mobileMenu} />
-      </SlidingDrawer>, document.getElementById('slider'));
+      </SlidingDrawer>,
+      document.getElementById("slider")
+    );
   }
 
   // The menu is read from the CMS. The menu is displayed in the slider as an
@@ -144,7 +148,6 @@ const RootLayout = ({
         <GlobalFooter />
       </div>
       <div id="slider"></div>
-
     </div>
   );
 };

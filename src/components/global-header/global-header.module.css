@@ -17,7 +17,7 @@
 
 .globalnavmobilecontainer {
   display: grid;
-  grid-template-columns:  1fr 3fr 1fr;;
+  grid-template-columns: 1fr 3fr 1fr;
   grid-template-areas: "logo buttons burger";
   column-gap: 1vh;
   justify-content: center;
@@ -70,4 +70,3 @@
   grid-template-columns: 1fr;
   padding: 5%;
 }
-
