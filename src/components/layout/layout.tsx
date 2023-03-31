@@ -14,6 +14,7 @@ import {
   CmsSubNavItem,
   getNavItems,
 } from "@/src/features/cms-access";
+import { render } from "react-dom";
 
 type Props = {
   children: ReactNode;
@@ -24,17 +25,28 @@ const RootLayout = ({
   children,
   title = "Richard George Test Site",
 }: Props): JSX.Element => {
-  // the top level layout is a slider for when in mobile view and the page.
-  // The slider state and functions control if the slider is visible
-
-  const [sliderVisible, setSliderVisible] = useState(false);
-
   function onClickBurgerOpen(): void {
-    setSliderVisible(true);
+    render(
+      <SlidingDrawer
+        show={true}
+        background="white"
+        color="black"
+        callback={onClickBurgerClose}
+      >
+        <Accordion items={mobileMenu} />
+      </SlidingDrawer>, document.getElementById('slider'));
   }
 
   function onClickBurgerClose(): void {
-    setSliderVisible(false);
+    render(
+      <SlidingDrawer
+        show={false}
+        background="white"
+        color="black"
+        callback={onClickBurgerClose}
+      >
+        <Accordion items={mobileMenu} />
+      </SlidingDrawer>, document.getElementById('slider'));
   }
 
   // The menu is read from the CMS. The menu is displayed in the slider as an
@@ -131,15 +143,8 @@ const RootLayout = ({
         <div className={styles.content}>{children}</div>
         <GlobalFooter />
       </div>
+      <div id="slider"></div>
 
-      <SlidingDrawer
-        show={sliderVisible}
-        background="white"
-        color="black"
-        callback={onClickBurgerClose}
-      >
-        <Accordion items={mobileMenu} />
-      </SlidingDrawer>
     </div>
   );
 };
