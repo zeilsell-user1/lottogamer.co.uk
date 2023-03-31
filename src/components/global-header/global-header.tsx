@@ -165,7 +165,7 @@ const GlobalHeader = ({ menu, breakpoint, callback }: Props): JSX.Element => {
           <div className={styles.imagediv}>
             <Link href="/">{addLogoToHeader()}</Link>
           </div>
-          <div>
+          <div className={styles.globalnavitem}>
             <div className={styles.navbarbuttons}>
               <GenericButton style={ButtonStyles.ACTIVECTA} text="phone" />
               <GenericButton style={ButtonStyles.ACTIVECTA} text="email" />

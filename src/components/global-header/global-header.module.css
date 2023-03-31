@@ -1,18 +1,42 @@
 .globalnav {
   background: orange;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  height: 5%;
+}
+
+.globalnavcontainer {
+  display: grid;
+  grid-template-columns: 1fr 6fr 3fr;
+  grid-template-areas: "logo links buttons";
+  column-gap: 1vh;
+  justify-content: center;
+  justify-items: center;
 }
 
 .globalnavmobilecontainer {
   display: grid;
-  grid-template-columns: 3;
+  grid-template-columns:  1fr 3fr 1fr;;
   grid-template-areas: "logo buttons burger";
   column-gap: 1vh;
+  justify-content: center;
+  justify-items: center;
 }
 
 .globalnavmobileburger {
   grid-row-start: 1;
   grid-column-start: 3;
-  justify-self: end;
+  justify-content: center;
+  justify-self: center;
+  padding: 10%;
+}
+
+.imagediv {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  padding: 10%;
 }
 
 .logoimg {
@@ -25,13 +49,6 @@
   margin-left: 1vh;
   aspect-ratio: 1;
   margin: 1vh;
-}
-
-.globalnavcontainer {
-  display: grid;
-  grid-template-columns: 1fr 6fr 3fr;
-  grid-template-areas: "logo links buttons";
-  column-gap: 1vh;
 }
 
 .globalnavitem {
@@ -54,8 +71,3 @@
   padding: 5%;
 }
 
-.imagediv {
-  display: flex;
-  justify-content: center;
-  padding: 10%;
-}

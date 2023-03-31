@@ -20,7 +20,7 @@ type Props = {
   title?: string;
 };
 
-const Layout = ({
+const RootLayout = ({
   children,
   title = "Richard George Test Site",
 }: Props): JSX.Element => {
@@ -144,4 +144,4 @@ const Layout = ({
   );
 };
 
-export default Layout;
+export default RootLayout;
