@@ -1,4 +1,5 @@
 import React, { ReactNode, useEffect, useState } from "react";
+import * as ReactDOMClient from 'react-dom/client';
 import Head from "next/head";
 import GlobalHeader from "../global-header/global-header";
 import GlobalFooter from "../global-footer/global-footer";
@@ -14,7 +15,6 @@ import {
   CmsSubNavItem,
   getNavItems,
 } from "@/src/features/cms-access";
-import { render } from "react-dom";
 
 type Props = {
   children: ReactNode;
@@ -25,8 +25,17 @@ const RootLayout = ({
   children,
   title = "Richard George Test Site",
 }: Props): JSX.Element => {
+
+  let container:Element;
+  let root:ReactDOMClient.Root;
+
   function onClickBurgerOpen(): void {
-    render(
+    if (!container) {
+      container = document.getElementById('slider') as Element;
+      root = ReactDOMClient.createRoot(container);
+    }
+
+    root.render(
       <SlidingDrawer
         show={true}
         background="white"
@@ -34,13 +43,12 @@ const RootLayout = ({
         callback={onClickBurgerClose}
       >
         <Accordion items={mobileMenu} />
-      </SlidingDrawer>,
-      document.getElementById("slider")
+      </SlidingDrawer>
     );
   }
 
   function onClickBurgerClose(): void {
-    render(
+    root.render(
       <SlidingDrawer
         show={false}
         background="white"
@@ -48,8 +56,7 @@ const RootLayout = ({
         callback={onClickBurgerClose}
       >
         <Accordion items={mobileMenu} />
-      </SlidingDrawer>,
-      document.getElementById("slider")
+      </SlidingDrawer>
     );
   }
 
@@ -153,3 +160,7 @@ const RootLayout = ({
 };
 
 export default RootLayout;
+function componentDidMount() {
+  throw new Error("Function not implemented.");
+}
+
