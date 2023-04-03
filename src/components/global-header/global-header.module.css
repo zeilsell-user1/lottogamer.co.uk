@@ -1,6 +1,5 @@
 .globalnav {
   background: orange;
-  position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
   height: 5%;
@@ -42,13 +41,13 @@
 .logoimg {
   margin-left: 1vh;
   aspect-ratio: 1;
-  margin: 1vh;
+  margin-top: 1vh;
 }
 
 .burgerimg {
   margin-left: 1vh;
   aspect-ratio: 1;
-  margin: 1vh;
+  margin-top: 1vh;
 }
 
 .globalnavitem {

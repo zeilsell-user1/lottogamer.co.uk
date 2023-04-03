@@ -69,8 +69,8 @@
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+  font-family: Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono",
+    "Bitstream Vera Sans Mono", "Courier New", monospace;
 }
 
 .grid {
@@ -101,7 +101,7 @@
 }
 
 .card h2 {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem;
   font-size: 1.5rem;
 }
 
@@ -116,7 +116,7 @@
   margin-left: 0.5rem;
 }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
@@ -128,9 +128,11 @@
   .footer {
     border-color: #222;
   }
+
   .code {
     background: #111;
   }
+
   .logo img {
     filter: invert(1);
   }
@@ -139,5 +141,5 @@
 .imgerror {
   margin-left: 1vh;
   aspect-ratio: 1;
-  margin: 2vh;
+  margin-top: 2vh;
 }
