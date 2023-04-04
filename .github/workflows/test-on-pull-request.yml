@@ -25,6 +25,11 @@ jobs:
         with:
           cmd: lint # will run `yarn lint` command
 
+      - name: lint:css
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: lint:css # will run `yarn lint` command
+
       - name: Build production bundle
         uses: borales/actions-yarn@v4
         with:
