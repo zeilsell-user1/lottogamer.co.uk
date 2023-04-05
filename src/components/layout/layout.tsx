@@ -1,9 +1,9 @@
-import React, { ReactNode, useEffect, useState } from "react";
-import * as ReactDOMClient from 'react-dom/client';
+import React, { ReactNode } from "react";
+import * as ReactDOMClient from "react-dom/client";
 import Head from "next/head";
+import styles from "./layout.module.css";
 import GlobalHeader from "../global-header/global-header";
 import GlobalFooter from "../global-footer/global-footer";
-import styles from "./layout.module.css";
 import { SlidingDrawer } from "@zeilsell-user1/sliding-drawer-component";
 import {
   Accordion,
@@ -25,13 +25,12 @@ const RootLayout = ({
   children,
   title = "Richard George Test Site",
 }: Props): JSX.Element => {
-
-  let container:Element;
-  let root:ReactDOMClient.Root;
+  let container: Element;
+  let root: ReactDOMClient.Root;
 
   function onClickBurgerOpen(): void {
     if (!container) {
-      container = document.getElementById('slider') as Element;
+      container = document.getElementById("slider") as Element;
       root = ReactDOMClient.createRoot(container);
     }
 
@@ -65,70 +64,64 @@ const RootLayout = ({
   // in this section are used to grab the content of the menu from the CMS and
   // to map the CMS menu to the format expected by the accordion.
 
-  const [desktopMenu, setDesktopMenu] = useState([] as CmsNavItem[]);
-  const [mobileMenu, setMobileMenu] = useState([] as AccordionItem[]);
+  let desktopMenu: CmsNavItem[] = [] as CmsNavItem[];
+  let mobileMenu: AccordionItem[] = [] as AccordionItem[];
 
-  // read the header logo and nav data from the CMS on every page load
-
-  useEffect(() => {
-    let mobileMenu: AccordionItem[] = [] as AccordionItem[];
-
-    function mapSubItem(
-      menuSubItem: CmsSubNavItem,
-      mobileSubItems: AccordionSubItem[] | undefined
-    ) {
-      let mobileSubItem: AccordionSubItem = {
-        key: menuSubItem.key,
-        enabled: menuSubItem.enabled,
-        title: menuSubItem.title,
-        description: menuSubItem.description,
-        url: menuSubItem.url,
-      };
-
-      if (!mobileSubItems) mobileSubItems = [] as AccordionSubItem[];
-
-      mobileSubItems.push(mobileSubItem);
-    }
-
-    function mapItem(menuItem: CmsNavItem) {
-      let mobileItem: AccordionItem = {
-        key: menuItem.key,
-        enabled: menuItem.enabled,
-        title: menuItem.title,
-        description: menuItem.description,
-        url: menuItem.url,
-        subItems: [] as AccordionSubItem[],
-      };
-      1;
-      menuItem.subMenuItems?.map((subMenuItem) =>
-        mapSubItem(subMenuItem, mobileItem.subItems)
-      );
-
-      // set the subitems to undefined as expected by accordion
-      if (mobileItem.subItems?.length == 0) mobileItem.subItems = undefined;
-
-      mobileMenu.push(mobileItem);
-    }
-
-    function mapMenuToAccordionItems(menu: CmsNavItem[]): AccordionItem[] {
-      menu[0]
-        ? menu.map((item) => mapItem(item))
-        : (mobileMenu = [] as AccordionItem[]);
-
-      console.log("mobile menu is ", mobileMenu);
-      return mobileMenu;
-    }
-
-    const fillOutHeaderNavigationLinks = async () => {
-      const navLinksCallback = (navItemsData: CmsNavItem[]) => {
-        setDesktopMenu(navItemsData);
-        setMobileMenu(mapMenuToAccordionItems(navItemsData));
-      };
-      getNavItems(navLinksCallback);
+  function mapSubItem(
+    menuSubItem: CmsSubNavItem,
+    mobileSubItems: AccordionSubItem[] | undefined
+  ) {
+    let mobileSubItem: AccordionSubItem = {
+      key: menuSubItem.key,
+      enabled: menuSubItem.enabled,
+      title: menuSubItem.title,
+      description: menuSubItem.description,
+      url: menuSubItem.url,
     };
 
-    fillOutHeaderNavigationLinks();
-  }, []);
+    if (!mobileSubItems) mobileSubItems = [] as AccordionSubItem[];
+
+    mobileSubItems.push(mobileSubItem);
+  }
+
+  function mapItem(menuItem: CmsNavItem) {
+    let mobileItem: AccordionItem = {
+      key: menuItem.key,
+      enabled: menuItem.enabled,
+      title: menuItem.title,
+      description: menuItem.description,
+      url: menuItem.url,
+      subItems: [] as AccordionSubItem[],
+    };
+    1;
+    menuItem.subMenuItems?.map((subMenuItem) =>
+      mapSubItem(subMenuItem, mobileItem.subItems)
+    );
+
+    // set the subitems to undefined as expected by accordion
+    if (mobileItem.subItems?.length == 0) mobileItem.subItems = undefined;
+
+    mobileMenu.push(mobileItem);
+  }
+
+  function mapMenuToAccordionItems(menu: CmsNavItem[]): AccordionItem[] {
+    menu[0]
+      ? menu.map((item) => mapItem(item))
+      : (mobileMenu = [] as AccordionItem[]);
+
+    console.log("mobile menu is ", mobileMenu);
+    return mobileMenu;
+  }
+
+  const fillOutHeaderNavigationLinks = async () => {
+    const navLinksCallback = (navItemsData: CmsNavItem[]) => {
+      navItemsData.forEach((val) => desktopMenu.push(Object.assign({}, val)));
+      mapMenuToAccordionItems(navItemsData);
+    };
+    getNavItems(navLinksCallback);
+  };
+
+  fillOutHeaderNavigationLinks();
 
   // return the JSX element
 
@@ -160,7 +153,3 @@ const RootLayout = ({
 };
 
 export default RootLayout;
-function componentDidMount() {
-  throw new Error("Function not implemented.");
-}
-
