@@ -45,6 +45,9 @@ export default function Home(): JSX.Element {
             ratio={AspectRatio.widescreen}
           />
         </div>
+        <div className={styles.footerclearance}>
+          <p></p>
+        </div>
       </Layout>
     </div>
   );
