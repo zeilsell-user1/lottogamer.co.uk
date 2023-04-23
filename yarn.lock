@@ -346,6 +346,11 @@
   dependencies:
     reactjs-popup "^2.0.5"
 
+"@zeilsell-user1/basic-lotto-board@^0.0.1":
+  version "0.0.1"
+  resolved "https://npm.pkg.github.com/download/@zeilsell-user1/basic-lotto-board/0.0.1/87c2229fb83ebf8f1b57b6367a21bad4eb00073c#87c2229fb83ebf8f1b57b6367a21bad4eb00073c"
+  integrity sha512-cNc0AMW/e2BfLV5ATe2SI4VXUPmDruXwNfnUDhTLYZ2y1zHmWuogy0MG4bdgRBzyC5lkomvbQMCAStXaNV8OsA==
+
 "@zeilsell-user1/cross-sell-component@^0.2.2":
   version "0.2.2"
   resolved "https://npm.pkg.github.com/download/@zeilsell-user1/cross-sell-component/0.2.2/48e59ba692c960db7ca5ee179f5a2207ee3c8b09#48e59ba692c960db7ca5ee179f5a2207ee3c8b09"
