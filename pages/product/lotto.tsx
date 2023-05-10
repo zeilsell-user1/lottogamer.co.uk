@@ -1,4 +1,5 @@
 import { BasicLottoBoard } from "@zeilsell-user1/basic-lotto-board";
+import { DuckShootLotto } from "@zeilsell-user1/duck-shoot-lotto";
 import Layout from "../../src/components/layout/layout";
 import styles from "../../styles/Home.module.css";
 
@@ -9,7 +10,18 @@ export default function lottoProductPage(): JSX.Element {
         <div className={styles.pagesection}>
           <p>This page contains the lotto products</p>
         </div>
-        <div><BasicLottoBoard text="Default Board" /></div>
+        <h1>Basic Lotto Board</h1>
+        <div className={styles.pagesection}>
+          <div>
+            <BasicLottoBoard text="Default Board" />
+          </div>
+        </div>
+        <h1>Duck shoot!</h1>
+        <div className={styles.pagesection}>
+          <div>
+            <DuckShootLotto />
+          </div>
+        </div>
       </Layout>
     </div>
   );

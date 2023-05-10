@@ -346,20 +346,20 @@
   dependencies:
     reactjs-popup "^2.0.5"
 
-"@zeilsell-user1/basic-lotto-board@^0.0.1":
-  version "0.0.1"
-  resolved "https://npm.pkg.github.com/download/@zeilsell-user1/basic-lotto-board/0.0.1/87c2229fb83ebf8f1b57b6367a21bad4eb00073c#87c2229fb83ebf8f1b57b6367a21bad4eb00073c"
-  integrity sha512-cNc0AMW/e2BfLV5ATe2SI4VXUPmDruXwNfnUDhTLYZ2y1zHmWuogy0MG4bdgRBzyC5lkomvbQMCAStXaNV8OsA==
+"@zeilsell-user1/basic-lotto-board@1.0.0":
+  version "1.0.0"
+  resolved "https://npm.pkg.github.com/download/@zeilsell-user1/basic-lotto-board/1.0.0/3daeead7334ab2ba6cac163a4b92cae7d6519476#3daeead7334ab2ba6cac163a4b92cae7d6519476"
+  integrity sha512-mmtAgE8qtWi6uV2jjFaoSRcdYdApbSsmg47xqTGiyfnfW4zr0aPxYBGHcQXZM3w/9uifNh7zyAkB6SU5+8BuYQ==
 
 "@zeilsell-user1/cross-sell-component@^0.2.2":
   version "0.2.2"
   resolved "https://npm.pkg.github.com/download/@zeilsell-user1/cross-sell-component/0.2.2/48e59ba692c960db7ca5ee179f5a2207ee3c8b09#48e59ba692c960db7ca5ee179f5a2207ee3c8b09"
   integrity sha512-fzfXcwwe2+MgGJYipxXsTxewi4k+EUWtFlELgDuld06JvlhAVVKefLFcQmUgORglCJao/nkWZhg4EWP5HSpJ+w==
 
-"@zeilsell-user1/duck-shoot-lotto@^0.0.1":
-  version "0.0.1"
-  resolved "https://npm.pkg.github.com/download/@zeilsell-user1/duck-shoot-lotto/0.0.1/0652265601fca95d27cc85e4bd3e4a4a422e4b55#0652265601fca95d27cc85e4bd3e4a4a422e4b55"
-  integrity sha512-nTgz+HcQdI3rzlIJqYHKGKoI2QXvlp8hR7NRuJwczmRctNb5AGzaxjNQqa2scRC5HmTKMJHw8/Gi5+kmwgI8/Q==
+"@zeilsell-user1/duck-shoot-lotto@1.0.0":
+  version "1.0.0"
+  resolved "https://npm.pkg.github.com/download/@zeilsell-user1/duck-shoot-lotto/1.0.0/ead50455bbd284a89b229fef1074e3ecc9d2126c#ead50455bbd284a89b229fef1074e3ecc9d2126c"
+  integrity sha512-JU6DE0pRF34UaIcXUuC6jWEbUkpik0n0x7eH+uusSYW5DDXE20nqMqFoPS8eTvfhU0PHWRGJ3vRRsZ7Wo6XHgg==
 
 "@zeilsell-user1/generic-button-component@^0.1.3":
   version "0.1.3"

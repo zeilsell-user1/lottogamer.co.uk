@@ -1,13 +1,15 @@
 .container {
   width: 100%;
   padding: 0;
-}
-
-.pagesection {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.pagesection {
+  display: inline-block;
+  width: 100%;
 }
 
 .footerclearance {
